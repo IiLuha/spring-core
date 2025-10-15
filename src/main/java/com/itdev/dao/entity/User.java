@@ -1,13 +1,15 @@
-package com.itdev.entity;
+package com.itdev.dao.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@EqualsAndHashCode(of = "id")
 @AllArgsConstructor
 @Builder
 public class User {
