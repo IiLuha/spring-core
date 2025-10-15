@@ -31,10 +31,11 @@ public class UserRepository {
     }
 
     public Optional<User> findById(Integer id) {
-        return Optional.ofNullable(users.get(id));
+        return Optional.of(id)
+                .map(users::get);
     }
 
-    public boolean isLoginExist(String login) {
-        return logins.contains(login);
+    public boolean loginNotContained(String login) {
+        return !logins.contains(login);
     }
 }

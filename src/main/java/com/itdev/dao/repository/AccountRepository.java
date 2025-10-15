@@ -17,13 +17,14 @@ public class AccountRepository {
     }
 
     public Optional<Account> findById(Integer id) {
-        return Optional.ofNullable(accounts.get(id));
+        return Optional.of(id)
+                .map(accounts::get);
     }
 
     public Account create(Account account) {
         return Optional.of(account)
                 .map(a -> accounts.put(a.getId(), a))
-                .orElseThrow();
+                .orElseThrow(() -> new RuntimeException("Unable to create an account with id" + account.getId()));
     }
 
     public Account update(Account account) {
