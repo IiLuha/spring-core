@@ -10,6 +10,6 @@ public class IdSequence {
     private int nextId;
 
     public Integer generateNextId() {
-        return nextId++;
+        return ++nextId;
     }
 }

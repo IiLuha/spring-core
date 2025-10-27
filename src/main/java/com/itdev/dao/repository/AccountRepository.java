@@ -23,8 +23,17 @@ public class AccountRepository {
 
     public Account create(Account account) {
         return Optional.of(account)
-                .map(a -> accounts.put(a.getId(), a))
-                .orElseThrow(() -> new RuntimeException("Unable to create an account with id" + account.getId()));
+                .map(this::putAccount)
+                .orElseThrow(() -> new RuntimeException("Unable to create an account with id " + account.getId()));
+    }
+
+    private Account putAccount(Account a) {
+        Account maybePut = accounts.putIfAbsent(a.getId(), a);
+        if (maybePut == null) {
+            return a;
+        } else {
+            return null;
+        }
     }
 
     public Account update(Account account) {
@@ -35,3 +44,6 @@ public class AccountRepository {
         accounts.remove(account.getId());
     }
 }
+//USER_CREATE
+//Pavel Sorokin
+

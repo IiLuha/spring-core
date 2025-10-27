@@ -27,7 +27,7 @@ public class UserService {
     public User create(String login) {
         String newLogin = Optional.of(login)
                 .filter(userRepository::loginNotContained)
-                .orElseThrow(() -> new LoginAlreadyExistException("Login " + login + " already exist"));
+                .orElseThrow(() -> new LoginAlreadyExistException("Login " + login + " already exist."));
         User user = User.builder()
                 .id(idSequence.generateNextId())
                 .login(newLogin)
