@@ -36,14 +36,8 @@ public class AccountRepository {
         }
     }
 
-    public Account update(Account account) {
-        return account;
-    }
-
     public void delete(Account account) {
         accounts.remove(account.getId());
     }
 }
-//USER_CREATE
-//Pavel Sorokin
 

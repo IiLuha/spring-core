@@ -1,10 +1,6 @@
 package com.itdev.controller;
 
 import com.itdev.dao.entity.Account;
-import com.itdev.exception.AccountNotFoundException;
-import com.itdev.exception.DeleteFirstAccountException;
-import com.itdev.exception.InsufficientFundsException;
-import com.itdev.exception.UserNotFoundException;
 import com.itdev.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -18,25 +14,13 @@ public class AccountController {
     private final AccountService accountService;
 
     public String create(Integer userId) {
-//        try {
-            Account account = accountService.create(userId);
-            return account + " was created";
-//        } catch (UserNotFoundException e) {
-//            return e.getMessage() +
-//                    System.lineSeparator() +
-//                    "Try again with another user id.";
-//        }
+        Account account = accountService.create(userId);
+        return account + " was created";
     }
 
     public String close(Integer id) {
-//        try {
-            accountService.delete(id);
-            return "The account with ID %s has been successfully deleted.".formatted(id);
-//        } catch (AccountNotFoundException | DeleteFirstAccountException e) {
-//            return e.getMessage() +
-//                    System.lineSeparator() +
-//                    "Try again with another account id.";
-//        }
+        accountService.delete(id);
+        return "The account with ID %s has been successfully deleted.".formatted(id);
     }
 
     public String transfer(Integer idFrom, Integer idTo, BigDecimal amount) {
@@ -45,28 +29,12 @@ public class AccountController {
     }
 
     public String withdraw(Integer id, BigDecimal amount) {
-//        try {
-            accountService.withdraw(id, amount);
-            return "Amount %s was withdrawn from account ID: %s".formatted(amount, id);
-//        } catch (AccountNotFoundException e) {
-//            return e.getMessage() +
-//                    System.lineSeparator() +
-//                    "Try again with another account id.";
-//        } catch (InsufficientFundsException e) {
-//            return e.getMessage() +
-//                    System.lineSeparator() +
-//                    "There are %s funds available.".formatted(e.getAvailableFunds());
-//        }
+        accountService.withdraw(id, amount);
+        return "Amount %s was withdrawn from account ID: %s".formatted(amount, id);
     }
 
     public String deposit(Integer id, BigDecimal amount) {
-//        try {
-            accountService.deposit(id, amount);
-            return "Amount %s deposited to account ID: %s".formatted(amount, id);
-//        } catch (AccountNotFoundException e) {
-//            return e.getMessage() +
-//                    System.lineSeparator() +
-//                    "Try again with another account id.";
-//        }
+        accountService.deposit(id, amount);
+        return "Amount %s deposited to account ID: %s".formatted(amount, id);
     }
 }

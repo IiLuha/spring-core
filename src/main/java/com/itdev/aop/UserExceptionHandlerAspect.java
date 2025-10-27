@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class UserExceptionHandlerAspect {
 
     @Pointcut("target(com.itdev.controller.UserController)")
-    public void isUserController(){
+    public void isUserController() {
     }
 
     @Pointcut("com.itdev.aop.CommonPointcuts.isControllerLayer() && isUserController() && execution(public * create(*))")

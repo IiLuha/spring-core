@@ -48,11 +48,6 @@ public class AccountService {
                 .build();
     }
 
-
-    public Optional<Account> findById(Integer id) {
-        return accountRepository.findById(id);
-    }
-
     public Account create(Integer userId) {
         User user = Optional.of(userId)
                 .flatMap(userRepository::findById)

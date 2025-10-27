@@ -9,5 +9,6 @@ import org.springframework.stereotype.Component;
 public class CommonPointcuts {
 
     @Pointcut("within(com.itdev.controller.*Controller)")
-    public void isControllerLayer() {}
+    public void isControllerLayer() {
+    }
 }

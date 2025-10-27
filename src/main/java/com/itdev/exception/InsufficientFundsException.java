@@ -6,10 +6,6 @@ public class InsufficientFundsException extends RuntimeException {
 
     private BigDecimal availableFunds;
 
-    public InsufficientFundsException(Number id) {
-        super();
-    }
-
     public InsufficientFundsException(String message, BigDecimal availableFunds) {
         super(message);
         this.availableFunds = availableFunds;

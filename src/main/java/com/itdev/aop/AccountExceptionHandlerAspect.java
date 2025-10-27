@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class AccountExceptionHandlerAspect {
 
     @Pointcut("target(com.itdev.controller.AccountController)")
-    public void isAccountController(){
+    public void isAccountController() {
     }
 
     @Pointcut("com.itdev.aop.CommonPointcuts.isControllerLayer() && isAccountController() && execution(public * create(*))")
